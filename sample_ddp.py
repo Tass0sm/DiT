@@ -110,6 +110,8 @@ def main(args):
         z = torch.randn(n, model.in_channels, latent_size, latent_size, device=device)
         y = torch.randint(0, args.num_classes, (n,), device=device)
 
+        # NOTE: THIS IS WHERE THE DIFFUSION TRANSFORMER IS REALLY SET UP
+
         # Setup classifier-free guidance:
         if using_cfg:
             z = torch.cat([z, z], 0)
